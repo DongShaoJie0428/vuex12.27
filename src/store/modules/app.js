@@ -16,7 +16,7 @@ const getters = {
         if(day < 10) {
           return "0" + day
         }
-    return `${year}--${month}--${day} ${hour}:${min}:${sections}`
+    return `${year}--${month}--${day} ${hour}:${min}:${sections} ${state.num}`
   }
 }
 
