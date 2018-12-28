@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button @click="changeNum('add')">+</button>  
+    <button @click="changNum('add')">+</button>
     {{this.$store.state.app.num}}
-    <button @click="changeNum('del')">-</button>
+    <button @click="changNum('del')">-</button>
   </div>  
 </template>
 
@@ -12,8 +12,16 @@ export default {
     console.log(this.$store)
   },
   methods: {
-    changeNum(type) {
-      this.$store.commit("changes", {payload:type})
+    changNum(type) {
+      // this.$store.commit("changeNums",{payload:type})
+      this.$store.commit({
+        type:"app/changeNums",
+        payload:type
+      })
+      this.$store.dispatch({
+        type:"app/changeNumSync",
+        payload:type
+      })
     }
   }
 }
